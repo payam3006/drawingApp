@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drawingApp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <main>
+        <canvas id="canvas" width="1000" height="1000" onmousedown="start(event)" onmousemove="draw(event)"
+            onmouseup="end()" onmouseleave="end()">
+            Sorry, your browser does not support canvas.
+
+        </canvas>
+        <div class="controls">
+            <div class="box btn" onclick="minus()">
+                -
+            </div>
+            <div id="weight" class="box">
+                10
+            </div>
+            <div class="box btn" onclick="plus()">
+                +
+            </div>
+            <div id="color" class="box btn">
+
+                <input type="color" id="colorpicker" onchange="selectColor()" value="#000000"
+                    style="width:100%; height: 100%; border: 0;">
+            </div>
+            <div class="close box btn" onclick="refresh()">
+                X
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(50, 130, 161);
+  color: white;
+}
+
+#canvas {
+  background-color: white;
+  width: calc(min(80vw, 80vh));
+}
+.controls {
+  background-color: lightblue;
+  padding: 15px;
+  position: relative;
+  /* display: flex; */
+}
+
+.box {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background-color: whitesmoke;
+  color: black;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+}
