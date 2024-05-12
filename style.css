@@ -1,5 +1,15 @@
+:root {
+  /*use 100vh for mobile responsive
+COP!!!*/
+  --doc-height: 100%;
+}
+
 body {
-  height: 100vh;
+  /*use 100vh for mobile responsive
+COP!!!*/
+  height: 100vh; /* fallback for Js load */
+  height: var(--doc-height);
+
   margin: 0;
   display: flex;
   flex-direction: column;
