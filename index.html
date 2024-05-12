@@ -13,8 +13,8 @@
 <body>
 
     <main>
-        <canvas id="canvas" width="1000" height="1000" onmousedown="start(event)" onmousemove="draw(event)"
-            onmouseup="end()" onmouseleave="end()">
+        <canvas id="canvas" width="1000" height="1000" onmousedown="start(event)" ontouchmove="drawInMob(event)"
+            onmousemove="draw(event)" onmouseup="end()" onmouseleave="end()">
             Sorry, your browser does not support canvas.
 
         </canvas>

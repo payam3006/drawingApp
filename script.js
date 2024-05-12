@@ -46,6 +46,33 @@ function draw(evt) {
   }
 }
 
+function getTouchPos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  let width = rect.right - rect.left;
+  let height = rect.bottom - rect.top;
+  q("width", rect.right - rect.left);
+  q("height", rect.bottom - rect.top);
+  q(evt);
+
+  q("evt.clientX", evt.targetTouches[0].clientX);
+
+  return {
+    x: ((evt.targetTouches[0].clientX - rect.left) / width) * 1000,
+    y: ((evt.targetTouches[0].clientY - rect.top) / height) * 1000,
+  };
+}
+
+function drawInMob(evt) {
+  var pos = getTouchPos(canvas, evt);
+
+  q(pos.x, pos.y);
+
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(pos.x, pos.y, weight, 0, Math.PI * 2);
+  ctx.fill();
+}
+
 const selectColor = () => {
   color = `${document.getElementById("colorpicker").value}`;
 };
