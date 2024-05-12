@@ -20,6 +20,10 @@ COP!!!*/
   background-color: rgb(50, 130, 161);
   color: white;
 }
+/* prevent Refresh on touchDown */
+#canvas {
+  overscroll-behavior: contain;
+}
 
 #canvas {
   background-color: white;
