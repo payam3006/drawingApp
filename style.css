@@ -21,9 +21,13 @@ COP!!!*/
   color: white;
 }
 /* prevent Refresh on touchDown */
-#canvas {
+body {
   overscroll-behavior: contain;
 }
+/* with some bugs! */
+/* #canvas {
+  overscroll-behavior: contain;
+} */
 
 #canvas {
   background-color: white;
