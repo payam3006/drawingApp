@@ -10,6 +10,11 @@ COP!!!*/
   height: 100vh; /* fallback for Js load */
   height: var(--doc-height);
 
+  /* How TO - Disable Text Selection */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
   margin: 0;
   display: flex;
   flex-direction: column;
