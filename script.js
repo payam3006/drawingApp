@@ -16,9 +16,17 @@ let weight = 10;
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+let lastPos = {};
+
 const start = (ev) => {
   q("start");
   allowDraw = true;
+
+  lastPos.x = getMousePos(canvas, ev).x;
+  lastPos.y = getMousePos(canvas, ev).y;
+
+  q(lastPos);
+
   draw(ev);
 };
 
@@ -48,12 +56,23 @@ function draw(evt) {
   if (allowDraw) {
     var pos = getMousePos(canvas, evt);
 
-    q(pos.x, pos.y);
+    // q(pos.x, pos.y);
 
     ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.arc(pos.x, pos.y, weight, 0, Math.PI * 2);
+    ctx.arc(pos.x, pos.y, weight / 2, 0, Math.PI * 2);
     ctx.fill();
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = weight;
+    ctx.beginPath();
+    //////////////////NOT WORK HERE///////////////////
+    // ctx.lineJoin = "round";
+    ctx.moveTo(lastPos.x, lastPos.y);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    lastPos.x = pos.x;
+    lastPos.y = pos.y;
   }
 }
 
