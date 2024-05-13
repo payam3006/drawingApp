@@ -24,6 +24,7 @@ const start = (ev) => {
 
   lastPos.x = getMousePos(canvas, ev).x;
   lastPos.y = getMousePos(canvas, ev).y;
+  ///////////////////For mobile!////////////////
 
   q(lastPos);
 
@@ -54,7 +55,17 @@ function getMousePos(canvas, evt) {
 
 function draw(evt) {
   if (allowDraw) {
-    var pos = getMousePos(canvas, evt);
+    let pos = getMousePos(canvas, evt);
+
+    //////////////maybe for mobile work!////////////
+    // pos = getTouchPos(canvas, evt);
+    // if (pos) {
+    //   q("true");
+    // } else {
+    //   q("false");
+    // }
+
+    ///////////////////////////////////////////////
 
     // q(pos.x, pos.y);
 
@@ -76,15 +87,28 @@ function draw(evt) {
   }
 }
 
+///////////////////for Mobile!////////////////////
+const startInMob = (ev) => {
+  allowDraw = true;
+
+  lastPos.x = getTouchPos(canvas, ev).x;
+  lastPos.y = getTouchPos(canvas, ev).y;
+  ///////////////////For mobile!////////////////
+  drawInMob(ev);
+};
+
+const endInMob = () => {
+  allowDraw = false;
+};
 function getTouchPos(canvas, evt) {
   var rect = canvas.getBoundingClientRect();
   let width = rect.right - rect.left;
   let height = rect.bottom - rect.top;
-  q("width", rect.right - rect.left);
-  q("height", rect.bottom - rect.top);
-  q(evt);
+  // q("width", rect.right - rect.left);
+  // q("height", rect.bottom - rect.top);
+  // q(evt);
 
-  q("evt.clientX", evt.targetTouches[0].clientX);
+  // q("evt.clientX", evt.targetTouches[0].clientX);
 
   return {
     x: ((evt.targetTouches[0].clientX - rect.left) / width) * 1000,
@@ -113,6 +137,7 @@ function drawInMob(evt) {
   lastPos.x = pos.x;
   lastPos.y = pos.y;
 }
+/////////////////////////////////////////////////
 
 const selectColor = () => {
   color = `${document.getElementById("colorpicker").value}`;
